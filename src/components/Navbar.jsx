@@ -1,6 +1,7 @@
 // src/components/Navbar.jsx
 import { useState } from "react";
 import { FaBars, FaTimes, FaDownload } from "react-icons/fa";
+import cv from "../assets/cv.pdf";
 
 const links = [
   "Home",
@@ -40,7 +41,7 @@ export default function Navbar() {
 
         {/* CV Button */}
         <a
-          href="/cv.pdf"
+          href={cv}
           download
           className="hidden md:flex items-center gap-2 bg-slate-800 border border-slate-700 text-white px-4 py-2 rounded-lg text-sm hover:border-cyan-400 transition duration-300"
         >
