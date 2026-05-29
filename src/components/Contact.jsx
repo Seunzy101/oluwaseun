@@ -8,7 +8,9 @@ export default function Contact() {
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
   return (
-    <section id="contact" className="px-6 md:px-12 py-20">
+    <section
+      id="contact"
+      data-aos="fade-left" className="px-6 md:px-12 py-20">
       <p className="text-primary-light text-sm font-semibold tracking-widest mb-1 font-body">Get In Touch</p>
       <h2 className="font-sans font-bold text-3xl text-white mb-10">Let's Work Together</h2>
 

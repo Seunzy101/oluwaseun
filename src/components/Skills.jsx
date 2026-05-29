@@ -10,7 +10,9 @@ const skills = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="px-6 md:px-12 py-20">
+    <section
+      id="skills"
+      data-aos="fade-right" className="px-6 md:px-12 py-20">
       <div className="flex items-center justify-between mb-10">
         <div>
           <p className="text-primary-light text-sm font-semibold tracking-widest mb-1 font-body">My Skills</p>

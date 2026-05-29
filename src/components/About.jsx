@@ -8,7 +8,9 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="px-6 md:px-12 py-20 flex flex-col md:flex-row gap-12 items-center">
+    <section
+      id="about"
+      data-aos="fade-up" className="px-6 md:px-12 py-20 flex flex-col md:flex-row gap-12 items-center">
       {/* Image card */}
       <div className="flex-1 max-w-xs">
         <div className="bg-card border border-border rounded-2xl overflow-hidden p-6 text-center">
