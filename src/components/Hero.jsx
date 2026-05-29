@@ -10,9 +10,9 @@ import {
 } from "react-icons/fa";
 
 const stats = [
-  { value: "6", label: "Months Experience" },
-  { value: "5+", label: "Projects Completed" },
-  { value: "4+", label: "Happy Clients" },
+  { value: "1", label: "Year Experience" },
+  { value: "10+", label: "Projects Completed" },
+  { value: "14+", label: "Happy Clients" },
   { value: "5★", label: "Client Rating" },
 ];
 
