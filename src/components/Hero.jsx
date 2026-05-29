@@ -38,7 +38,7 @@ export default function Hero() {
 
         {/* Subheading */}
         <h2 className="text-slate-300 text-lg md:text-xl mb-5">
-          Frontend Developer & UI/UX Designer
+          Full Stack Web Developer & UI/UX Designer
         </h2>
 
         {/* Description */}

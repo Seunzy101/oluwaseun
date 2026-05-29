@@ -9,12 +9,12 @@ export default function Footer() {
           <div className="flex items-center gap-2 font-sans font-bold text-xl text-white mb-3">
             <span className="text-primary-light">⬡</span> Oluwaseun.
           </div>
-          <p className="text-slate-500 text-xs font-body">© 2024 Oluwaseun Adeyemi. All rights reserved.</p>
+          <p className="text-slate-500 text-xs font-body">© 2024 Oluwaseun Ashiru. All rights reserved.</p>
         </div>
 
         {[
           { title: "Quick Links", items: ["Home","About","Projects","Skills","Experience","Contact"] },
-          { title: "Services", items: ["UI/UX Design","Frontend Development","Product Design","Mobile Design"] },
+          { title: "Services", items: ["UI/UX Design","Full Stack Development","Product Design","Mobile Design"] },
         ].map((col) => (
           <div key={col.title}>
             <h4 className="font-sans font-semibold text-white mb-3 text-sm">{col.title}</h4>

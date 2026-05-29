@@ -14,7 +14,7 @@ const services = [
   },
   {
     icon: <FaCode />,
-    title: "Frontend Development",
+    title: "Full Stack Web Development",
     desc: "Building responsive and high-performance websites with modern technologies.",
   },
   {
@@ -45,7 +45,7 @@ export default function Services() {
 
         <p className="text-slate-400 max-w-xl leading-relaxed">
           I help brands and businesses create modern digital
-          experiences through creative design and clean frontend
+          experiences through creative design and clean frontend & Backend
           development.
         </p>
       </div>

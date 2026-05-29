@@ -1,6 +1,6 @@
 // src/components/Experience.jsx
 const jobs = [
-  { period: "2025 – Present", role: "Frontend Developer", company: "New Horizon", desc: "Building scalable web applications using React, Next.js and modern tools." },
+  { period: "2025 – Present", role: "Full Stack Web Developer", company: "New Horizon", desc: "Building scalable web applications using React, Next.js and modern tools." },
   { period: "2025 – 2026", role: "UI/UX Designer", company: "New Horizon", desc: "Designing user interfaces and improving user experiences for mobile & web." },
   { period: "2026", role: "Freelance Web Designer", company: "Self Employed", desc: "Worked with multiple clients to deliver modern and responsive websites." },
 ];

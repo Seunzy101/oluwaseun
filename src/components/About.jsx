@@ -17,7 +17,7 @@ export default function About() {
             alt="Oluwaseun"
             className="w-full h-48 object-cover object-top rounded-xl mb-4"
           />
-          <p className="font-sans font-bold text-white">Frontend Developer</p>
+          <p className="font-sans font-bold text-white">Full Stack Web Developer</p>
           <p className="text-slate-400 text-sm">& UI/UX Designer</p>
         </div>
       </div>
@@ -29,7 +29,7 @@ export default function About() {
           Crafting Digital Experiences That Inspire
         </h2>
         <p className="text-slate-400 font-body leading-relaxed mb-8">
-          I'm a passionate Frontend Developer and UI/UX Designer with a strong eye
+          I'm a passionate Full Stack Web Developer and UI/UX Designer with a strong eye
           for detail and a love for creating beautiful, functional and user-friendly
           digital products.
         </p>
