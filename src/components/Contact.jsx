@@ -1,70 +1,207 @@
 // src/components/Contact.jsx
-import { FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
+
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
+import {
+  FaEnvelope,
+  FaPhone,
+  FaMapMarkerAlt,
+} from "react-icons/fa";
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
 
-  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState("");
+
+  const handleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    setLoading(true);
+    setStatus("");
+
+    try {
+      const response = await emailjs.send(
+        "service_9kmnu6p",
+        "template_pbzp77i",
+        {
+          name: form.name,
+          email: form.email,
+          message: form.message,
+        },
+        "aTDpfSl-Zt64AmOdc"
+      );
+
+      console.log("EMAIL SENT:", response);
+
+      setStatus("✅ Message sent successfully!");
+
+      setForm({
+        name: "",
+        email: "",
+        message: "",
+      });
+
+    } catch (error) {
+
+      console.log("FULL ERROR:", error);
+      console.log("STATUS:", error?.status);
+      console.log("TEXT:", error?.text);
+
+      setStatus(
+        error?.text ||
+        error?.message ||
+        "❌ Failed to send message."
+      );
+    }
+
+    setLoading(false);
+  };
 
   return (
     <section
       id="contact"
-      data-aos="fade-left" className="px-6 md:px-12 py-20">
-      <p className="text-primary-light text-sm font-semibold tracking-widest mb-1 font-body">Get In Touch</p>
-      <h2 className="font-sans font-bold text-3xl text-white mb-10">Let's Work Together</h2>
+      data-aos="fade-left"
+      className="px-6 md:px-12 py-20"
+    >
+      <div className="max-w-6xl mx-auto">
 
-      <div className="flex flex-col md:flex-row gap-12">
-        {/* Info */}
-        <div className="flex-1 flex flex-col gap-6">
-          <p className="text-slate-400 font-body">Have a project in mind or want to collaborate? I'd love to hear from you.</p>
-          {[
-            { icon: FaEnvelope, label: "Email", value: "ashiruseun17@gmail.com" },
-            { icon: FaPhone, label: "Phone", value: "+234 906 084 6432" },
-            { icon: FaMapMarkerAlt, label: "Location", value: "Lagos, Nigeria" },
-          ].map(({ icon: Icon, label, value }) => (
-            <div key={label} className="flex items-center gap-4">
-              <div className="w-10 h-10 bg-card border border-border rounded-lg flex items-center justify-center text-primary-light">
-                <Icon />
+        <p className="text-cyan-400 text-sm font-semibold tracking-widest mb-2">
+          GET IN TOUCH
+        </p>
+
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-10">
+          Let's Work Together
+        </h2>
+
+        <div className="grid md:grid-cols-2 gap-12">
+
+          {/* LEFT */}
+
+          <div>
+
+            <p className="text-slate-400 mb-8 leading-7">
+              Have a project in mind or need a developer
+              for your next big idea? Feel free to contact me.
+            </p>
+
+            <div className="space-y-6">
+
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-slate-800 border border-slate-700 rounded-xl flex items-center justify-center text-cyan-400">
+                  <FaEnvelope />
+                </div>
+
+                <div>
+                  <p className="text-slate-500 text-sm">
+                    Email
+                  </p>
+                  <p className="text-white">
+                    ashiruseun17@gmail.com
+                  </p>
+                </div>
               </div>
-              <div>
-                <p className="text-slate-500 text-xs font-body">{label}</p>
-                <p className="text-white text-sm font-body">{value}</p>
+
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-slate-800 border border-slate-700 rounded-xl flex items-center justify-center text-cyan-400">
+                  <FaPhone />
+                </div>
+
+                <div>
+                  <p className="text-slate-500 text-sm">
+                    Phone
+                  </p>
+                  <p className="text-white">
+                    +234 906 084 6432
+                  </p>
+                </div>
               </div>
+
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-slate-800 border border-slate-700 rounded-xl flex items-center justify-center text-cyan-400">
+                  <FaMapMarkerAlt />
+                </div>
+
+                <div>
+                  <p className="text-slate-500 text-sm">
+                    Location
+                  </p>
+                  <p className="text-white">
+                    Lagos, Nigeria
+                  </p>
+                </div>
+              </div>
+
             </div>
-          ))}
-        </div>
 
-        {/* Form */}
-        <div className="flex-1 flex flex-col gap-4">
-          <div className="flex flex-col sm:flex-row gap-4">
+          </div>
+
+          {/* RIGHT */}
+
+          <form
+            onSubmit={handleSubmit}
+            className="space-y-4"
+          >
+
             <input
+              type="text"
               name="name"
               value={form.name}
               onChange={handleChange}
               placeholder="Your Name"
-              className="flex-1 bg-card border border-border rounded-lg px-4 py-3 text-white text-sm font-body placeholder-slate-600 focus:outline-none focus:border-primary"
+              required
+              className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400"
             />
+
             <input
+              type="email"
               name="email"
               value={form.email}
               onChange={handleChange}
               placeholder="Your Email"
-              className="flex-1 bg-card border border-border rounded-lg px-4 py-3 text-white text-sm font-body placeholder-slate-600 focus:outline-none focus:border-primary"
+              required
+              className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400"
             />
-          </div>
-          <textarea
-            name="message"
-            value={form.message}
-            onChange={handleChange}
-            placeholder="Your Message"
-            rows={5}
-            className="bg-card border border-border rounded-lg px-4 py-3 text-white text-sm font-body placeholder-slate-600 focus:outline-none focus:border-primary resize-none"
-          />
-          <button className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-body font-medium w-fit transition-all">
-            Send Message ✉
-          </button>
+
+            <textarea
+              name="message"
+              value={form.message}
+              onChange={handleChange}
+              rows="6"
+              placeholder="Your Message"
+              required
+              className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 resize-none focus:outline-none focus:border-cyan-400"
+            />
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="bg-cyan-500 hover:bg-cyan-600 disabled:opacity-60 text-white px-8 py-3 rounded-xl font-medium transition"
+            >
+              {loading ? "Sending..." : "Send Message"}
+            </button>
+
+            {status && (
+              <p className="text-sm mt-2 text-cyan-400">
+                {status}
+              </p>
+            )}
+
+          </form>
+
         </div>
+
       </div>
     </section>
   );
